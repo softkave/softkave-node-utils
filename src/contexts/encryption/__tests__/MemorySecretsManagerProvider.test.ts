@@ -1,7 +1,6 @@
 import {faker} from '@faker-js/faker';
 import {expectErrorThrown} from '../../../testUtils/helpers/error';
-import {completeTests} from '../../../testUtils/helpers/testFns';
-import {initTests} from '../../../testUtils/testUtils';
+import {completeTests, initTests} from '../../../testUtils/helpers/testFns';
 import {MemorySecretsManagerProvider} from '../MemorySecretsManagerProvider';
 
 beforeAll(async () => {

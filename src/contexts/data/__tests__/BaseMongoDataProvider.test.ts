@@ -7,8 +7,7 @@ import {
   loopAndCollate,
 } from 'softkave-js-utils';
 import {MongoDbConnection} from '../../../mongodb/connection';
-import {completeTests} from '../../../testUtils/helpers/testFns';
-import {initTests} from '../../../testUtils/testUtils';
+import {completeTests, initTests} from '../../../testUtils/helpers/testFns';
 import {kUtilsInjectables} from '../../injection/injectables';
 import {dataQueryToMongoQuery} from '../dataQueryToMongoQuery';
 import {

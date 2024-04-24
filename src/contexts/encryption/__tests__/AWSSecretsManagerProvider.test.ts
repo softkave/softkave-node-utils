@@ -1,8 +1,7 @@
 import {faker} from '@faker-js/faker';
 import assert from 'assert';
 import {expectErrorThrown} from '../../../testUtils/helpers/error';
-import {completeTests} from '../../../testUtils/helpers/testFns';
-import {initTests} from '../../../testUtils/testUtils';
+import {completeTests, initTests} from '../../../testUtils/helpers/testFns';
 import {kUtilsInjectables} from '../../injection/injectables';
 import {AWSSecretsManagerProvider} from '../AWSSecretsManagerProvider';
 import {SecretsManagerProvider} from '../types';

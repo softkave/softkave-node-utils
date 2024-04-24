@@ -25,7 +25,8 @@ import {
   PaginatedResult,
   PaginationQuery,
 } from '../../endpoints/types';
-import {assertEndpointResultOk} from '../testUtils';
+import MockTestEmailProviderContext from '../context/email/MockTestEmailProviderContext';
+import {assertEndpointResultOk} from './response';
 
 export function mutationTest(
   name: string,
@@ -160,4 +161,12 @@ export async function testCombinations<TCombination extends AnyObject>(
   for (const combination of combinations) {
     await fn(combination);
   }
+}
+
+export function getTestEmailProvider() {
+  return new MockTestEmailProviderContext();
+}
+
+export async function initTests() {
+  await globalSetup();
 }

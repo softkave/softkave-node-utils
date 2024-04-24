@@ -1,6 +1,6 @@
 {
   "name": "softkave-node-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compilation of Node.js utils",
   "author": {
     "email": "ywordk@gmail.com",
@@ -22,7 +22,8 @@
     "build/src/{*.js,**/*.js}",
     "build/src/{*.js.map,**/*.js.map}",
     "build/src/{*.d.ts,**/*.d.ts}",
-    "!build/src/**/__tests__/**/*"
+    "!build/src/**/__tests__/**/*",
+    "!build/src/**/__test__/**/*"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,7 +33,10 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "check-circular-deps": "npx dpdm --no-warning --no-tree ./src/index.ts",
+    "publish-to-npm": "npm run compile && npm publish",
+    "show-packlist": "npm run compile && npm pack --dry-run"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

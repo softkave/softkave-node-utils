@@ -1,25 +1,9 @@
-import {globalSetup} from '../contexts/globalUtils';
-import {ServerRequest} from '../contexts/types';
-import {Resource} from '../definitions/resource';
-import {BaseTokenData, kCurrentJWTTokenVersion} from '../definitions/token';
-import {BaseEndpointResult} from '../endpoints/types';
-import MockTestEmailProviderContext from './context/email/MockTestEmailProviderContext';
-
-export function getTestEmailProvider() {
-  return new MockTestEmailProviderContext();
-}
-
-export async function initTests() {
-  await globalSetup();
-}
-
-export function assertEndpointResultOk(result?: BaseEndpointResult | void) {
-  if (result?.errors?.length) {
-    throw result.errors;
-  }
-
-  return true;
-}
+import {ServerRequest} from '../../contexts';
+import {
+  BaseTokenData,
+  Resource,
+  kCurrentJWTTokenVersion,
+} from '../../definitions';
 
 export function mockExpressRequest(token?: BaseTokenData) {
   const req: ServerRequest = {auth: token} as unknown as ServerRequest;

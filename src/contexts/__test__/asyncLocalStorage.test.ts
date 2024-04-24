@@ -1,8 +1,7 @@
 import {noop} from 'lodash';
-import {completeTests} from '../../testUtils/helpers/testFns';
-import {initTests} from '../../testUtils/testUtils';
+import {DisposableResource, waitTimeout} from 'softkave-js-utils';
+import {completeTests, initTests} from '../../testUtils/helpers/testFns';
 import {kAsyncLocalStorageUtils} from '../asyncLocalStorage';
-import {waitTimeout, DisposableResource} from 'softkave-js-utils';
 
 beforeAll(async () => {
   await initTests();
