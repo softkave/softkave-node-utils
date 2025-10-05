@@ -40,6 +40,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.yalc/
 
 # TypeScript v1 declaration files
 typings/
@@ -104,7 +105,7 @@ dist
 
 # build folder
 build/
-js-sdk-base/build/
+email-templates/compiled-code
 
 # AWS config
 aws-config.json
@@ -112,8 +113,23 @@ aws-config.json
 # Jest output
 jest-output/
 
+# DB path for mongo replicas run using `run-rs`, check script in `package.json`
+dev-mongo-rs-data/
+test-mongo-rs-data/
+
+# Local file persistence backend save dir
+dev-local-fs/
+test-local-fs/
+
+# Runtime logs
+runtime-logs/
+
+# config
+local.json
+local-*.json
+
 # certificates
 certs/
 
-# local shenanigans
-local-only/
+.DS_Store
+**/.DS_Store
