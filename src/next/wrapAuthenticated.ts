@@ -28,7 +28,7 @@ async function tryGetJWTTokenAuthenticatedRequest<
   const inputToken = rawToken.startsWith('Bearer ')
     ? rawToken.slice(7)
     : rawToken;
-  assert(isString(inputToken), new OwnServerError('Unauthorized', 401));
+  assert.ok(isString(inputToken), new OwnServerError('Unauthorized', 401));
 
   try {
     const decodedToken = jwt.verify(
@@ -63,7 +63,10 @@ async function getJWTTokenAuthenticatedRequest<
     T,
     TTransformJWTContent
   >(params);
-  assert(jwtTokenAuthenticatedRequest, new OwnServerError('Unauthorized', 401));
+  assert.ok(
+    jwtTokenAuthenticatedRequest,
+    new OwnServerError('Unauthorized', 401)
+  );
   return jwtTokenAuthenticatedRequest;
 }
 
