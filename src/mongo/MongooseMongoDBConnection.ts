@@ -1,12 +1,12 @@
-import {Connection} from 'mongoose';
+import mongoose from 'mongoose';
 import {type MongoDBConnection} from './types.js';
 import {getMongooseMongoConnection} from './utils.js';
 
 export class MongooseMongoDBConnection
-  implements MongoDBConnection<Connection>
+  implements MongoDBConnection<mongoose.Connection>
 {
-  protected connection: Connection;
-  protected promise: Promise<Connection>;
+  protected connection: mongoose.Connection;
+  protected promise: Promise<mongoose.Connection>;
 
   constructor(uri: string, dbName: string) {
     const {connection, promise} = getMongooseMongoConnection(uri, dbName);
@@ -14,11 +14,11 @@ export class MongooseMongoDBConnection
     this.promise = promise;
   }
 
-  get = <TConnection = Connection>() => {
+  get = <TConnection = mongoose.Connection>() => {
     return this.connection as TConnection;
   };
 
-  wait = <TConnection = Connection>() => {
+  wait = <TConnection = mongoose.Connection>() => {
     return this.promise as Promise<TConnection>;
   };
 
