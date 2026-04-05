@@ -1,6 +1,6 @@
 {
   "name": "softkave-node-utils",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Softkave Node.js utilities",
   "author": {
     "email": "ywordk@gmail.com",
@@ -62,7 +62,6 @@
   "peerDependencies": {
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20",
-    "fimidx": "^0.7.0",
     "lodash-es": "^4.17.21",
     "next": "15.5.9",
     "softkave-js-utils": "^0.17.1",
