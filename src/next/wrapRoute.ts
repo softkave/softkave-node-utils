@@ -3,17 +3,17 @@ import type {NextRequest} from 'next/server.js';
 import type {AnyFn} from 'softkave-js-utils';
 import {ZodError} from 'zod';
 import {OwnError, OwnServerError} from '../common/error.js';
-import {fimidxConsoleLogger} from '../common/index.js';
+import type {ILogger} from '../common/logger.js';
 
 export interface IRouteContext<T = unknown> {
   params: Promise<T>;
 }
 
 export const wrapRoute =
-  <TRequest extends NextRequest>(routeFn: AnyFn) =>
+  <TRequest extends NextRequest>(routeFn: AnyFn, opts?: {logger?: ILogger}) =>
   async (req: TRequest, ctx: IRouteContext) => {
     try {
-      // fimidxConsoleLogger.info("Route called", {
+      // opts?.logger?.log("Route called", {
       //   path: req.nextUrl.pathname,
       //   method: req.method,
       //   params: ctx.params,
@@ -24,7 +24,7 @@ export const wrapRoute =
         status: 200,
       });
     } catch (error) {
-      fimidxConsoleLogger.error(error);
+      opts?.logger?.error(error);
 
       if (OwnServerError.isOwnServerError(error)) {
         return Response.json(
